@@ -1,0 +1,64 @@
+/* Latch tokens. 4px spacing lives in Tailwind's default scale.
+   Light is the default. `.dark` on <html> is the alternate. */
+
+:root {
+  --bg: #f6f6f4;
+  --surface: #ffffff;
+  --ink: #1c1c1a;
+  --muted: #4a4a45;
+  --faint: #5c5c55;
+  --line: #e6e6e1;
+  --line-strong: #c8c8c1;
+  --accent: #1d4ed8;
+  --ok: #0f6e56;
+  --danger: #b42318;
+  --warn: #8a5a00;
+  --highlight: #f3e6c4;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #121210;
+  --surface: #1c1c19;
+  --ink: #f4f4f0;
+  --muted: #c8c8be;
+  --faint: #a3a398;
+  --line: #2f2f2a;
+  --line-strong: #4a4a43;
+  --accent: #adc0ff;
+  --ok: #8ddec0;
+  --danger: #ffb4ac;
+  --warn: #f0cc88;
+  --highlight: #4a3f24;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes latch-current {
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.latch-current {
+  animation: latch-current 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .latch-current {
+    animation: none;
+  }
+}

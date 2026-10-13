@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Latch citations</title>
+    <link rel="stylesheet" href="./latch.css" />
+    <style>
+      body {
+        margin: 0;
+        background: #f6f6f4;
+        color: #1c1c1a;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+      main {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 24px 16px 64px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="latch"></div>
+    </main>
+    <script type="module">
+      import { mount } from "./latch.js";
+      mount(document.querySelector("#latch"), { demo: "citations" });
+    </script>
+  </body>
+</html>

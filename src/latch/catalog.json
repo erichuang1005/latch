@@ -1,0 +1,21 @@
+{
+  "catalogId": "latch://catalog/v1",
+  "name": "Latch",
+  "version": "0.1.0",
+  "a2ui": "0.9.1",
+  "description": "Components for agents that ask only when they must and confirm before they act.",
+  "components": [
+    "ConfirmCard",
+    "ClarifyForm",
+    "HandoffCard",
+    "Reroute",
+    "ThinkingSteps",
+    "ChoiceList",
+    "ItemSummary",
+    "Cart",
+    "StatusPill",
+    "Toast",
+    "Citation",
+    "Source"
+  ]
+}
