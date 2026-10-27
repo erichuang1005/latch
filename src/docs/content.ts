@@ -183,7 +183,7 @@ export const components: ComponentDoc[] = [
     slug: "citation",
     name: "Citation",
     principle: "A figure in the sentence opens the file it came from, on the line that supports it.",
-    summary: "The pill is the number or the clause in the answer. Hover previews that page. Click opens the contract, invoice, policy, or thread, scrolled to the line.",
+    summary: "Cite is the figure in the sentence. SourceWorkspace opens the file behind it. Hover previews that page. Click opens the contract, invoice, policy, or thread, scrolled to the line.",
     states: ["idle", "loading", "needs-input", "confirmed", "error", "rerouted"],
     do: [
       "Make the figure itself the pill, inside the sentence.",
@@ -196,10 +196,15 @@ export const components: ComponentDoc[] = [
       "Close the file when the pointer leaves the pill.",
     ],
     props: [
-      { name: "documentId", type: "string", description: "Which file the figure comes from." },
-      { name: "lineId", type: "string", description: "The line to scroll to and highlight." },
-      { name: "label", type: "string", description: "The figure as it appears in the sentence." },
-      { name: "documents", type: "SourceDocument[]", description: "The files the answer is allowed to open." },
+      { name: "children", type: "ReactNode", description: "Cite. The figure as it appears in the sentence." },
+      { name: "label", type: "string", description: "Cite. Accessible name for the figure." },
+      { name: "documentId", type: "string", description: "Cite. Which file the figure comes from." },
+      { name: "lineId", type: "string", description: "Cite. The line to scroll to and highlight." },
+      { name: "documents", type: "SourceDocument[]", description: "SourceWorkspace. The files the answer is allowed to open." },
+      { name: "initialDocument", type: "string", description: "SourceWorkspace. Id of the file opened first." },
+      { name: "initialLine", type: "string", description: "SourceWorkspace. Line shown before a figure is chosen." },
+      { name: "state", type: "LatchState", description: "SourceWorkspace. idle, loading, needs-input, confirmed, error, or rerouted." },
+      { name: "pane", type: '"page" | "embedded"', description: "SourceWorkspace. page fills the screen. embedded keeps the preview in the column." },
     ],
   },
 ];
