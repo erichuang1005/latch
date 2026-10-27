@@ -273,7 +273,10 @@ export function mount(element, options = {}) {
   const previous = mounts.get(element);
   if (previous) previous();
   const name = options.demo || "citations";
-  const render = demos[name] || demos.citations;
+  const render = demos[name];
+  if (!render) {
+    throw new Error(`Unknown Latch demo "${name}". The only demo is "citations".`);
+  }
   element.classList.add("latch-root");
   element.replaceChildren();
   const destroyDemo = render(element);

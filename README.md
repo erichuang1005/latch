@@ -4,7 +4,7 @@ Latch is an open-source catalog of interface components for agents that ask only
 
 The components speak [A2UI](https://a2ui.org/) v0.9.1. An agent sends a small JSON message. A client that knows the catalog, `latch://catalog/v1`, renders it. The same message can land in a chat, a document, or a note.
 
-The examples are fictional: a team offsite, a laptop request, a travel policy. Latch is not published to npm yet.
+The examples are fictional: a team offsite, a laptop request, a travel policy.
 
 ## Live demo
 
@@ -29,15 +29,15 @@ The adapter also accepts A2UI v0.8 streams (`surfaceUpdate`, `beginRendering`, `
 
 ## Install
 
-The package entry is TypeScript source. Peer dependencies are React 19 and React DOM 19.
-
 ```bash
-npm install github:erichuang1005/latch
+npm install latch-ui
 ```
+
+React 19 and React DOM 19 are peer dependencies.
 
 ```tsx
 import { ConfirmCard } from "latch-ui";
-import "latch-ui/tokens.css";
+import "latch-ui/styles.css";
 
 export function Hold() {
   return (
@@ -55,6 +55,8 @@ export function Hold() {
 }
 ```
 
+`styles.css` includes the component classes and the color tokens. `latch-ui/tokens.css` is only the variables, for an app that already generates these utility classes.
+
 Render a message the agent already produced:
 
 ```tsx
@@ -67,18 +69,7 @@ export function Surface({ messages }: { messages: unknown }) {
 
 ## Embed
 
-`embed/` is a framework-free bundle for a static page. It does not call a CDN. Load the stylesheet, then mount the citations demo:
-
-```html
-<link rel="stylesheet" href="./latch.css" />
-<div id="latch"></div>
-<script type="module">
-  import { mount } from "./latch.js";
-  mount(document.querySelector("#latch"), { demo: "citations" });
-</script>
-```
-
-`Latch.mount` is the same function. Details, keyboard behavior, and a minimal `example.html` are in [embed/README.md](embed/README.md).
+The npm package does not include a browser script. `embed/latch.js` and `embed/latch.css` are files in the git repository. Copy both next to a static page. The only demo is `"citations"`. Passing another name, including `"action-review"`, throws. Setup, keyboard behavior, and `example.html` are in [embed/README.md](embed/README.md).
 
 ## Develop
 
@@ -95,7 +86,7 @@ npm run test:e2e
 npm run build
 ```
 
-`npm run build` writes a static export to `out/`.
+`npm run build` writes a static export to `out/`. `npm run build:lib` compiles the npm package into `dist/`. `npm pack` runs that build first.
 
 The demo on the site is scripted. `examples/llm-route.ts` shows a server handler that calls an OpenAI-compatible API when `LATCH_LLM_API_KEY` is set, and stays scripted when it is not. The static site does not mount that route.
 

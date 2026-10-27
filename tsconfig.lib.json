@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "declarationMap": false,
+    "sourceMap": false,
+    "noEmit": false,
+    "incremental": false,
+    "outDir": "dist/esm",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "src/latch/**/*.ts",
+    "src/latch/**/*.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/input.tsx",
+    "src/lib/utils.ts"
+  ],
+  "exclude": ["**/*.test.ts", "**/*.test.tsx", "node_modules", "dist"]
+}

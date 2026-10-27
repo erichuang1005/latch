@@ -21,7 +21,7 @@ Put the two assets next to the page (or serve them from the same origin) and mou
 </script>
 ```
 
-`demo` defaults to `"citations"`. `mount` returns a function that removes the demo and its listeners.
+`demo` defaults to `"citations"`, which is the only demo. Any other name throws. `mount` returns a function that removes the demo and its listeners.
 
 ```js
 const unmount = Latch.mount(element, { demo: "citations" });
